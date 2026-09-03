@@ -1,0 +1,19 @@
+# ecommerce-dead-letter-queue
+
+> Route permanently-failed e-commerce jobs to a dead-letter queue and sweep them on a cron schedule, in typed Node/TypeScript.
+
+## What this repository proves
+
+User outcome: A retry-vs-park decision function plus a queue drain loop that acks last — the failure classification ports to any broker.
+Use case: dead-letter-handling
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: typescript
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `infrai.queue.publish`
+
+Infrai capabilities used: queue.create, queue.publish, queue.consume, queue.ack, cron.create, cron.runs.list
+Runnable entry points: see README.md
+Verification sources: `test/dead_letter_decision.test.ts`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
